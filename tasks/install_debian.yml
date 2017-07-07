@@ -1,0 +1,6 @@
+---
+
+- name: "Debian: Install telegraf package"
+  apt:
+    name: telegraf
+    state: present

@@ -6,8 +6,7 @@ variables:
 .ansible_test_template: &ansible_test
   script:
     - ansible --version
-# Uncomment if your role have depends
-#    - ansible-galaxy install -v -r requirements.yml
+    - ansible-galaxy install -v -r requirements.yml
     - ansible-playbook tests/test.yml --syntax-check
     - ansible-playbook -vvv --connection=local tests/test.yml
     - idempotence=$(mktemp)
@@ -20,8 +19,6 @@ variables:
 # This part is used to check role run.
 # Add your own tests depending on your $ROLE
     - echo "=======> Starting output tests"
-    # check that our dummy file exists. TOBEREMOVED
-    - cat /tmp/.dummy-ansible-task
 
 # We build using (ansiblecheck)[https://hub.docker.com/r/ansiblecheck/ansiblecheck/]
 # images It provide a wide variety of OS container images to test with.
@@ -35,34 +32,34 @@ debian-jessie:
   image: ansiblecheck/ansiblecheck:debian-jessie
   <<: *ansible_test
 
-debian-stretch:
-  image: ansiblecheck/ansiblecheck:debian-stretch
-  <<: *ansible_test
-
-ubuntu-trusty:
-  image: ansiblecheck/ansiblecheck:ubuntu-trusty
-  <<: *ansible_test
+# debian-stretch:
+#   image: ansiblecheck/ansiblecheck:debian-stretch
+#   <<: *ansible_test
+#
+# ubuntu-trusty:
+#   image: ansiblecheck/ansiblecheck:ubuntu-trusty
+#   <<: *ansible_test
 
 ubuntu-xenial:
   image: ansiblecheck/ansiblecheck:ubuntu-xenial
   <<: *ansible_test
 
-centos-6:
-  image: ansiblecheck/ansiblecheck:centos-6
-  <<: *ansible_test
-
-centos-7:
-  image: ansiblecheck/ansiblecheck:centos-7
-  <<: *ansible_test
-
-fedora-23:
-  image: ansiblecheck/ansiblecheck:fedora-23
-  <<: *ansible_test
-
-fedora-24:
-  image: ansiblecheck/ansiblecheck:fedora-24
-  <<: *ansible_test
-
-archlinux-latest:
-  image: ansiblecheck/ansiblecheck:archlinux-latest
-  <<: *ansible_test
+# centos-6:
+#   image: ansiblecheck/ansiblecheck:centos-6
+#   <<: *ansible_test
+#
+# centos-7:
+#   image: ansiblecheck/ansiblecheck:centos-7
+#   <<: *ansible_test
+#
+# fedora-23:
+#   image: ansiblecheck/ansiblecheck:fedora-23
+#   <<: *ansible_test
+#
+# fedora-24:
+#   image: ansiblecheck/ansiblecheck:fedora-24
+#   <<: *ansible_test
+#
+# archlinux-latest:
+#   image: ansiblecheck/ansiblecheck:archlinux-latest
+#   <<: *ansible_test

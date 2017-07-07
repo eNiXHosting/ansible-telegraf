@@ -7,7 +7,7 @@
 # You will be asked which hosts to provision before-hand.
 
 
-- name: '$ROLE'
+- name: 'telegraf'
 
   vars_prompt:
     selected_hosts: Specify the hosts to provision

@@ -12,6 +12,7 @@ Supported targets:
 - Ubuntu 16.04 "Xenial"
 - Debian 7 "Wheezy"
 - Debian 8 "Jessie"
+- Debian 9 "Stretch"
 
 
 Role Variables
@@ -53,13 +54,12 @@ You can also use the role as a playbook. You will be asked which hosts to provis
 Still to do
 -----------
 
-- Write the role itself, for one
-
+- Handle the telegraf plugins configuration
 
 Changelog
 ---------
 
-### 0.1
+### 1.0
 
 Initial version.
 

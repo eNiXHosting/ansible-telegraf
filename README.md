@@ -54,14 +54,17 @@ You can also use the role as a playbook. You will be asked which hosts to provis
 Still to do
 -----------
 
-- Handle the telegraf plugins configuration
+- Handle `[global_tags]` configuration
+- Handle `[agent]` configuration
+- Handle `[[outputs:influxdb]]` configuration
+- Handle plugins configuration using generic `/etc/telegraf/telegraf.d/`
 
 Changelog
 ---------
 
-### 1.0
+### 0.1
 
-Initial version.
+Prerelease with only installation
 
 License
 -------
